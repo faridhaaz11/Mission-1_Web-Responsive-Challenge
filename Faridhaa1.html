@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Faridha</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #e71175;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.158);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e71175;
+        }
+
+        .tombol-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .tombol-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 70px;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .judul {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #e71175;
+        }
+
+        /* Bagian Utama */
+        .bagian-utama {
+            background: linear-gradient(135deg, #e71175, #ffffffb7);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .foto-profil {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 2rem;
+            object-fit: cover;
+        }
+
+        .bagian-utama h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bagian-utama p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .tombol {
+            display: inline-block;
+            background: white;
+            color: #e71175;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .tombol:hover {
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #000000;
+        }
+
+        /* Bagian Identitas */
+        .identitas {
+            background: #f8f9fa;
+        }
+
+        .identitas-konten {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .identitas-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .identitas-item:last-child {
+            border-bottom: none;
+        }
+
+        .identitas-label {
+            font-weight: bold;
+            color: #2c3e50;
+            min-width: 150px;
+        }
+
+        .identitas-value {
+            color: #666;
+            text-align: right;
+        }
+
+        /* Pendidikan */
+        .pendidikan {
+            background: #f8f9fa;
+        }
+
+        .pendidikan-item {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #e71175;
+        }
+
+        .pendidikan-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .pendidikan-tanggal {
+            color: #e71175;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills */
+        .skills {
+            background: white;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .skill-item {
+            background: #ee79af;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Projects */
+        .projects {
+            background: #f8f9fa;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #ff6eaa, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin: 0.2rem;
+        }
+        
+        /* Kontak */
+        .kontak {
+            background: white;
+        }
+
+        .kontak-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .kontak-item {
+            padding: 2rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+
+        .kontak-item:hover {
+            background: #e9ecef;
+        }
+
+        .kontak-icon {
+        width: 60px;           /* Atur lebar */
+        height: 60px;          /* Atur tinggi */
+        margin: 0 auto 1rem;   /* Center dan margin bawah */
+        display: block;        /* Biar bisa di-center */
+        object-fit: cover;     /* Biar gambar pas */
+        border-radius: 8px;    
+        }
+
+        .kontak-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .kontak-item a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .kontak-item a:hover {
+            color: #3498db;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #ff6eaa;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .tombol-menu {
+                display: flex;
+            }
+
+            .bagian-utama h1 {
+                font-size: 2rem;
+            }
+
+            .bagian-utama p {
+                font-size: 1rem;
+            }
+
+            .judul {
+                font-size: 1.8rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .bagian-utama {
+                padding: 4rem 0;
+            }
+
+            .bagian-utama h1 {
+                font-size: 1.8rem;
+            }
+
+            .foto-profil {
+                width: 120px;
+                height: 120px;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Portofolio Saya</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#identitas">Identitas</a></li>
+                <li><a href="#pendidikan">Pendidikan</a></li>
+                <li><a href="#skills">Katerampilan</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="tombol-menu" id="tombol-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Header -->
+        <section id="home" class="bagian-utama">
+            <div class="container">
+                <img src="gambar/Profile.jpg" alt="Foto Profil" class="foto-profil">
+                <h1>FARIDHA ZAHIYA</h1>
+                <a href="#about" class="tombol">Tentang Saya</a>
+            </div>
+        </section>
+
+        <!-- About me -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="judul">Tentang Saya</h2>
+                <p>
+                    Saya adalah mahasiswa D3 Teknik Informatika yang memiliki ketertarikan dalam dunia teknologi dan pemrograman. 
+                    Saya senang mempelajari teknologi baru, mengasah keterampilan pemrograman, serta terus berusaha meningkatkan kemampuan saya. 
+                    Saya ingin terus belajar dan berkembang di dunia teknologi, dengan harapan dapat menciptakan karya yang berdampak positif bagi banyak orang.
+                </p>
+            </div>
+        </section>
+
+        <!-- Identitas -->
+        <section id="identitas" class="identitas">
+            <div class="container">
+                <h2 class="judul">Identitas Diri</h2>
+                <div class="identitas-konten">
+                    <div class="identitas-item">
+                        <span class="identitas-label">Nama Lengkap</span>
+                        <span class="identitas-value">Faridha Zahiya</span>
+                    </div>
+                    <div class="identitas-item">
+                        <span class="identitas-label">Jenis Kelamin</span>
+                        <span class="identitas-value">Perempuan</span>
+                    </div>
+                    <div class="identitas-item">
+                        <span class="identitas-label">Alamat</span>
+                        <span class="identitas-value">Jl. Pasar Sayati Lama Gg. Sawargi Kec. Margahayu Kab. Bandung</span>
+                    </div>
+                    <div class="identitas-item">
+                        <span class="identitas-label">Status</span>
+                        <span class="identitas-value">Mahasiswa</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Riwayat Pendidikan --> 
+         <section id="pendidikan" class="pendidikan"> 
+            <div class="container"> 
+                <h2 class="judul">Pendidikan</h2> 
+                <div class="pendidikan-item"> 
+                    <h3>Politeknik Negeri Bandung</h3> 
+                    <div class="pendidikan-tanggal">2024 - Sekarang</div> 
+                    <p>D3 Teknik Informatika</p> 
+                 </div> 
+                    <div class="pendidikan-item"> 
+                        <h3>SMAN 1 Margahayu</h3> 
+                        <div class="pendidikan-tanggal">2021 - 2024</div> 
+                    </div> 
+                        <div class="pendidikan-item"> 
+                            <h3>SMPN 2 Margahayu</h3> 
+                            <div class="pendidikan-tanggal">2018 - 2021</div> 
+                        </div> 
+                        </div> </section>
+
+
+        <!-- Keterampilan -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="judul">Keterampilan</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <p><strong>Programming & Development</strong></p>
+                            <p>C programming</p>
+                            <p>Raylib</p>
+                            <p>HTML & CSS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Project -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="judul">Proyek</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Website Biodata Sederhana</h3>
+                            <p>Pembuatan website Biodata sederhana menggunakan HTML dan CSS.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Program Sistem Pembelian Pulsa</h3>
+                            <p>Membuat program sistem pembelian pulsa menggunakan bahasa C dengan konsep ADT.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Game Interaktif dengan Raylib</h3>
+                            <p>Proyek tim yang dikembangkan menggunakan bahasa C dan Raylib.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Program Silsilah Keluarga</h3>
+                            <p>Proyek tim menggunakan bahasa C dan ADT untuk merepresentasikan hubungan anggota keluarga.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>        
+
+        <!-- Kontak -->
+        <section id="kontak" class="kontak">
+            <div class="container">
+                <h2 class="judul">Kontak</h2>
+                <div class="kontak-grid">
+                    <div class="kontak-item">
+                        <img src="gambar/email.jpg" alt="Email" class="kontak-icon">
+                        <h3>Email</h3>
+                        <a href="mailto:faridhazahiya11@gmail.com">faridhazahiya11@gmail.com</a>
+                    </div>
+                    <div class="kontak-item">
+                        <img src="gambar/github.png" alt="Email" class="kontak-icon">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/faridhaaz11" target="_blank">github.com/faridhaaz11</a>
+                    </div>
+                    <div class="kontak-item">
+                        <img src="gambar/pesan.png" alt="Email" class="kontak-icon">
+                        <h3>WhatsApp</h3>
+                        <a href="https://wa.me/6289674058806" target="_blank">+62 896-7405-8806</a>
+                    </div>
+                    <div class="kontak-item">
+                        <img src="gambar/line.png" alt="Email" class="kontak-icon">
+                        <h3>Line</h3>
+                        <a href="https://line.me/ti/p/chuT17n6ce" target="_blank">faridhaaz</a>
+                    </div>
+                    <div class="kontak-item">
+                        <img src="gambar/instagram.png" alt="Email" class="kontak-icon">
+                        <h3>Instagram</h3>
+                        <a href="https://www.instagram.com/faridhaaz?igsh=MWhhY3F3OHlzZ2RudQ==" target="_blank">faridhaaz</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile Navigation
+        const tombolMenu = document.getElementById('tombol-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        tombolMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        function toggleEducation() {
+            var photos = document.getElementById("edu-photos");
+            photos.classList.toggle("expanded");
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
