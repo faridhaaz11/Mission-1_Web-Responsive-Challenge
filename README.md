@@ -18,4 +18,4 @@ HTML, CSS, dan JavaScript
 * Kontak Section - Informasi kontak lengkap
 
 
-Link Website Portofolio : https://faridhaaz11.github.io/Mission-1_Web-Responsive-Challenge
+Link Website Portofolio : https://webresponsivefaridha.netlify.app/
